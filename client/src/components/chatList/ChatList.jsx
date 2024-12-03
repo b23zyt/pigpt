@@ -24,7 +24,13 @@ const ChatList = () => {
         <span className="title">RECENT CHATS</span>
         <div className="list">
             {isPending ? "Loading" : error ? "Something went wrong!" : data?.map((chat) => (
-              <Link to={`/dashboard/chats/${chat._id}`} key={chat._id}>{chat.title}</Link>
+              <Link to={`/dashboard/chats/${chat._id}`} key={chat._id}>
+                <div style={{display: 'flex', justifyContent:"space-between"}}>{chat.title}
+                  <span>
+                    <img src='/delete.png' alt='' style={{width: "16px", height:"16px"}}/>
+                  </span>
+                </div>
+              </Link>
             ))}
         </div>
         <hr />
